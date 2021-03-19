@@ -1,0 +1,22 @@
+.App {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Oxygen, sans-serif;
+    font-size: 10px;
+    text-align: center;
+}
+
+.recipes-container {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.recipes {
+    width: 500px;
+    height: 400px;
+    margin: 20px;
+    text-align: center;
+}
