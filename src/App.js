@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import Recipes from "./components/Recipes";
 import SearchForm from "./components/SearchForm";
+import Pagination from "./components/Pagination";
 
 const App = () => {
   const App_id = "2319649e";
@@ -10,6 +11,8 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("chicken");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(3);
 
   console.log(query);
 
@@ -31,14 +34,22 @@ const App = () => {
     setLoading(true);
   };
 
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = recipes.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (number) => {
+    setCurrentPage(number)
+  }
+
   return (
     <div className="App">
       <h1>Food Recipe App</h1>
-      <SearchForm getNewRecipe={getNewRecipe}/>
+      <SearchForm getNewRecipe={getNewRecipe} />
       <br />
       <div className="recipes-container">
         {loading
-          ? recipes.map((recipe) => {
+          ? currentPosts.map((recipe) => {
               return (
                 <Recipes
                   key={recipe.recipe.label}
@@ -51,6 +62,7 @@ const App = () => {
             })
           : "Loading........"}
       </div>
+      <Pagination postsPerPage={postsPerPage} totalPosts={recipes.length} paginate={paginate}/>
     </div>
   );
 };
