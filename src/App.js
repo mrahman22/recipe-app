@@ -44,7 +44,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Food Recipe App</h1>
+      <h1 className="main-title">Food Recipe App</h1>
       <SearchForm getNewRecipe={getNewRecipe} />
       <br />
       <div className="recipes-container">

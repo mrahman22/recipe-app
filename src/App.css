@@ -12,6 +12,39 @@
     text-align: center;
 }
 
+.main-title {
+    color: white;
+    background-color: crimson;
+    padding: 30px;
+    font-style: italic;
+}
+
+
+.search-form {
+    margin-top: 30px;
+}
+
+.search-form input {
+    width: 500px;
+    height: 30px;
+    text-align: center;
+}
+
+.search-btn {
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    background-color: crimson;
+    border: transparent;
+    color: white;
+}
+
+.search-btn:hover {
+    background-color: yellow;
+    border: transparent;
+    color: black;
+}
+
 .recipes-container {
     margin: auto;
     margin-top: 30px;
@@ -70,6 +103,17 @@ img {
     color: white;
     border: 1px solid yellow;
 }
+
+.pagination {
+    margin: auto;
+    width: 10%;
+}
+
+.pagination li {
+    margin: 5px;
+    font-size: 20px;
+}
+
 
 
 
