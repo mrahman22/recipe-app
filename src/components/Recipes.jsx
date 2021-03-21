@@ -13,9 +13,9 @@ export default function Recipes({title, calories, image, ingredients}) {
     return (
         <div className="recipes">
             <img src={image} alt={title}/>
-            <h2>{title}</h2>
-            <p>{Math.round(calories)}</p>
-            <button onClick={handleClick}>View Ingredients</button>
+            <h5 className="recipe-title">{title.toUpperCase()}</h5>
+            <p>Calories: {Math.round(calories)}</p>
+            <button onClick={handleClick}>{btn ? "Hide Ingredients" : "View Ingredients"}</button>
             {btn && ingredients.map(ingredient => {
                 return (
                     <p>{ingredient.text}</p>
