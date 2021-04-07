@@ -13,7 +13,7 @@ export default function Recipes({title, calories, image, ingredients}) {
     return (
         <div className="recipes">
             <img src={image} alt={title}/>
-            <h5 className="recipe-title">{title.toUpperCase()}</h5>
+            <h6 className="recipe-title">{title.toUpperCase()}</h6>
             <p>Calories: {Math.round(calories)}</p>
             <button onClick={handleClick}>{btn ? "Hide Ingredients" : "View Ingredients"}</button>
             {btn && ingredients.map(ingredient => {
