@@ -110,14 +110,27 @@
 }
 
 .pagination {
-    margin: auto;
-    width: 10%;
+    display: flex;
+    justify-content: center;
 }
 
 .pagination li {
     margin: 5px;
     font-size: 20px;
 }
+
+.pagination a {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.pagination a:hover {
+    background-color: green;
+    color: white;
+}
+
+
+.
 
 
 @media only screen and (max-width: 1200px) {
