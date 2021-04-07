@@ -15,7 +15,7 @@ export default function SearchForm({ getNewRecipe }) {
 
   return (
     <form onSubmit={handleSubmit} className="search-form">
-      <input type="text" value={search} onChange={handleChange} placeholder="type in your main ingredient......."/>
+      <input type="text" value={search} onChange={handleChange} placeholder="type in your main ingredient......." required/>
       <button className="search-btn">Search</button>
     </form>
   );
