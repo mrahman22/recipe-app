@@ -3,6 +3,10 @@
 
 }
 
+/*================================ App ========================================*/
+
+
+
 .App {
     box-sizing: border-box;
     margin: 0;
@@ -12,12 +16,27 @@
     text-align: center;
 }
 
+/*================================ Header Component =============================*/
+
+
 .main-title {
     color: white;
     background-color: crimson;
     padding: 30px;
     font-style: italic;
 }
+
+/*================================ Header Component =============================*/
+
+
+
+
+
+
+
+
+/*================================ SearchForm Component ===========================*/
+
 
 
 .search-form {
@@ -44,6 +63,18 @@
     border: transparent;
     color: black;
 }
+
+/*================================ SearchForm Component ===========================*/
+
+
+
+
+
+
+
+/*================================ Recipes Component ==============================*/
+
+
 
 .recipes-container {
     margin: auto;
@@ -109,6 +140,15 @@
     border: 1px solid yellow;
 }
 
+/*================================ Recipes Component ==============================*/
+
+
+
+
+
+/*================================ Pagination Component ==============================*/
+
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -129,8 +169,15 @@
     color: white;
 }
 
+/*================================ Pagination Component ==============================*/
 
-.
+
+
+
+
+
+/*================================ Media queries ==============================*/
+
 
 
 @media only screen and (max-width: 1200px) {
