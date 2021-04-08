@@ -8,13 +8,14 @@ export default function SearchForm({ getNewRecipe }) {
   };
 
   const handleSubmit = (e) => {
+    console.log(search)
     e.preventDefault();
     getNewRecipe(search);
     setSearch("");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="search-form">
+    <form onSubmit={handleSubmit} className="search-form" data-testid="search-btn">
       <input type="text" value={search} onChange={handleChange} placeholder="type in your main ingredient......." required/>
       <button className="search-btn">Search</button>
     </form>
