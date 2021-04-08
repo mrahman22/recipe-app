@@ -1,23 +1,23 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
+import * as api from "./api/api"
 import Recipes from "./components/Recipes";
 import SearchForm from "./components/SearchForm";
+import Loader from "./components/Loader"
+import Header from "./components/Header"
 import Pagination from "./components/Pagination";
 
 const App = () => {
-  const App_id = "2319649e";
-  const App_key = "0ed2da5b023bc1208644c09818565dd8";
-
+  
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("chicken");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3);
 
-  console.log(query);
+  
 
   useEffect(() => {
-    console.log("useEffect has been called");
     getRecipes(query);
   }, [query]);
 
@@ -26,9 +26,7 @@ const App = () => {
   };
 
   const getRecipes = async (query) => {
-    const response = await fetch(
-      `https://api.edamam.com/search?q=${query}&app_id=${App_id}&app_key=${App_key}`
-    );
+    const response = await api.fetchRecipes(query); 
     const data = await response.json();
     setRecipes(data.hits);
     setLoading(true);
@@ -44,7 +42,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="main-title">Food Recipe App</h1>
+      <Header />
       <SearchForm getNewRecipe={getNewRecipe} />
       <br />
       <div className="recipes-container">
@@ -60,7 +58,7 @@ const App = () => {
                 />
               );
             })
-          : "Loading........"}
+          : <Loader />}
       </div>
       <Pagination postsPerPage={postsPerPage} totalPosts={recipes.length} paginate={paginate}/>
     </div>
