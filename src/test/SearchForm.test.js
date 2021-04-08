@@ -4,7 +4,7 @@ import SearchForm from "../components/SearchForm";
 
 it("renders correctly", () => {
   const { queryByTestId, queryByPlaceholderText } = render(<SearchForm />);
-  expect(queryByTestId("search-btn")).toBeTruthy();
+  expect(queryByTestId("search-button")).toBeTruthy();
   expect(
     queryByPlaceholderText("type in your main ingredient.......")
   ).toBeTruthy();
@@ -18,5 +18,20 @@ describe("Input value", () => {
     );
     fireEvent.change(searchInput, { target: { value: "test" } });
     expect(searchInput.value).toBe("test");
+  });
+});
+
+describe("data which will trigger API request", () => {
+  it("triggers api request", () => {
+    const getNewRecipe = jest.fn();
+    const { queryByTestId, queryByPlaceholderText } = render(
+      <SearchForm getNewRecipe={getNewRecipe} />
+    );
+    const searchInput = queryByPlaceholderText(
+      "type in your main ingredient......."
+    );
+    fireEvent.change(searchInput, { target: { value: "test" } });
+    fireEvent.submit(queryByTestId("search-button"));
+    expect(getNewRecipe).toHaveBeenCalled();
   });
 });
